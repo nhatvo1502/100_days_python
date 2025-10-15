@@ -2,7 +2,7 @@ import random
 words_list = ['haiku', 'poem', 'plant','coffee','tea']
 
 print('Welcome to hangman')
-word = random.choice(words_list)
+word = random.choice(words_list).lower()
 word_to_guess = []
 for c in range(len(word)):
     word_to_guess.append("_")
