@@ -1,5 +1,3 @@
-var = 3 * 3 + 3 / 3 - 3
 
-print(var)
-
-print(7%3)
+s = '_asd'
+print(s[1])
