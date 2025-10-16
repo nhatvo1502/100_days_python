@@ -1,4 +1,4 @@
-logo = r''' 
+logo = ''' 
 _____________________
 |  _________________  |
 | | Pythonista   0. | |  .----------------.  .----------------.  .----------------.  .----------------. 
@@ -14,49 +14,3 @@ _____________________
 | |___|___|___| |___| |  '----------------'  '----------------'  '----------------'  '----------------' 
 |_____________________|
 '''
-print(logo)
-def add(n1, n2):
-   return n1+n2
-
-def sub(n1, n2):
-   return n1-n2
-
-def mul(n1, n2):
-   return n1*n2
-
-def div(n1, n2):
-   return n1/n2
-
-operations = {
-   "+": add,
-   "-": sub,
-   "*": mul,
-   "/": div,
-}
-def calculator():
-   num1 = float(input("What's the first number?: "))
-   accumulator = True
-
-   while accumulator:
-      for symbol in operations:
-         print(symbol)
-      while True:
-         operator_choice = input("Pick an operation: ")
-         if operator_choice in '+-*/':
-            break
-         else:
-            print('Wrong input')
-
-      num2 = float(input("What's the second number?: "))
-
-      result = operations[operator_choice](num1, num2)
-      print(f'{num1} {operator_choice} {num2} = {result}')
-      accumulator_choice = input(f"Type 'y' to continue calculating with {result}, or type 'n' to start a new calculation: ")
-      if accumulator_choice == 'y':
-         num1 = result
-      else:
-         accumulator = False
-         print("\n" * 20)
-         calculator()
-
-calculator()
