@@ -88,16 +88,35 @@
 # print(astring[9])
 # print(list(astring.lower()))
 
-year = 2000
-def is_leap_year(year):
-    if year % 4 == 0:
-        if year % 100 == 0:
-            if year % 400:
-                return True
-            else:
-                return False
-        else:
-            return False
-    else:
-        return False
-print(is_leap_year(year))
+# year = 2000
+# def is_leap_year(year):
+#     if year % 4 == 0:
+#         if year % 100 == 0:
+#             if year % 400:
+#                 return True
+#             else:
+#                 return False
+#         else:
+#             return False
+#     else:
+#         return False
+# print(is_leap_year(year))
+
+# deck = [1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 'J', 'J', 'J', 'J', 'J', 'J', 'J', 'J', 'K', 'K', 'K', 'K']
+# newDeck = []
+# for card in range(len(deck)):
+#     newDeck.append(str(deck[card]))
+# print(newDeck)
+
+cards = [1, 2, 3, 10, 11, 13, 14, 11]
+
+# print(cards)
+# print(cards.count(11))
+# print(len(cards))
+for i in range(len(cards)):
+    print(cards[i])
+    if cards[i] == 11:
+        print('found it')
+        cards[i] = 100
+
+print(cards)
