@@ -1,20 +1,35 @@
-student_scores = {
-    'Harry': 88,
-    'Ron': 78,
-    'Hermione': 95,
-    'Draco': 75,
-    'Neville': 60
-}
-student_grades = {}
+# capitals = {
+#    "Frances": "Paris",
+#    "Germany": "Berlin"
+# }
 
-for student in student_scores:
-    score = student_scores[student]
-    
-    if score >= 91 and score < 100:
-        student_grades[student]='Outstanding'
-    elif score >= 81 and score < 90:
-        student_grades[student]='Exceeds Expectations'
-    elif score >= 71 and score < 80:
-        student_grades[student]='Acceptable'
-    else:
-        student_grades[student]='Fail'
+# travel_log = {
+#    "France" : ["Paris", "Lille", "Digon"],
+#    "Germany": ["Stuttgart", "Berlini"]
+# }
+
+# print(travel_log["France"][1])
+
+# nested_list = ["A", "B", ["C", "D"]]
+# print(nested_list[2][1])
+
+# travel_log = {
+#    "France": {
+#       "cities_visited": ["Paris", "Lille", "Dijon"],
+#       "total_visits": 12
+#    },
+#    "Germany": {
+#       "cities_visited": ["Berlin", "Hamburg", "Stuttgart"],
+#       "total_visited": 5
+#    }
+# }
+# print(travel_log["Germany"]["cities_visited"][2])
+
+dict = {
+    "a": 1,
+    "b": 2,
+    "c": 3,
+}
+print(dict)
+dict[1]=4
+print(dict)
