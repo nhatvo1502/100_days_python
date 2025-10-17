@@ -1,9 +1,14 @@
 
 import random
+beautifulDeck = ['11', '11', '11', '11', '2', '2', '2', '2', '3', '3', '3', '3', '4', '4', '4', '4', '5', '5', '5', '5', '6', '6', '6', '6', '7', '7', '7', '7', '8', '8', '8', '8', '9', '9', '9', '9', '10', '10', '10', '10', 'J', 'J', 'J', 'J', 'J', 'J', 'J', 'J', 'K', 'K', 'K', 'K']
+deck = []
+# Reset deck
+def reset_deck():
+    global beautifulDeck, deck
+    deck = beautifulDeck.copy()
 
 # Create a deal card function that return a random card
 def deal_card():
-    deck = ['11', '11', '11', '11', '2', '2', '2', '2', '3', '3', '3', '3', '4', '4', '4', '4', '5', '5', '5', '5', '6', '6', '6', '6', '7', '7', '7', '7', '8', '8', '8', '8', '9', '9', '9', '9', '10', '10', '10', '10', 'J', 'J', 'J', 'J', 'J', 'J', 'J', 'J', 'K', 'K', 'K', 'K']
     card = random.choice(deck)
     return card
 
@@ -34,6 +39,7 @@ def calculate_score(cards):
 def blackjack():
     user_cards = []
     computer_cards = []
+    reset_deck()
     # Deal user and computer 2 cards each and append() to their piles
     for i in range(2):
         user_cards.append(deal_card())
@@ -72,7 +78,7 @@ def blackjack():
         print('Computer went over. You win!')
     elif computer_score > user_score:
         print('Computer win!')
-    elif user_score > computer_score:
+    elif user_score > computer_score or user_score == 0:
         print('You win!')
     else:
         print('Idk what the f is this scenario')

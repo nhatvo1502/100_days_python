@@ -109,14 +109,24 @@
 # print(newDeck)
 
 cards = [1, 2, 3, 10, 11, 13, 14, 11]
+bcards = []
+
+def reset_deck():
+    global cards, bcards
+    bcards = cards.copy()
+
+reset_deck()
+
+print(cards)
+print(bcards)
 
 # print(cards)
 # print(cards.count(11))
 # print(len(cards))
-for i in range(len(cards)):
-    print(cards[i])
-    if cards[i] == 11:
-        print('found it')
-        cards[i] = 100
+# for i in range(len(cards)):
+#     print(cards[i])
+#     if cards[i] == 11:
+#         print('found it')
+#         cards[i] = 100
 
-print(cards)
+# print(cards)
