@@ -108,17 +108,17 @@
 #     newDeck.append(str(deck[card]))
 # print(newDeck)
 
-cards = [1, 2, 3, 10, 11, 13, 14, 11]
-bcards = []
+# cards = [1, 2, 3, 10, 11, 13, 14, 11]
+# bcards = []
 
-def reset_deck():
-    global cards, bcards
-    bcards = cards.copy()
+# def reset_deck():
+#     global cards, bcards
+#     bcards = cards.copy()
 
-reset_deck()
+# reset_deck()
 
-print(cards)
-print(bcards)
+# print(cards)
+# print(bcards)
 
 # print(cards)
 # print(cards.count(11))
@@ -130,3 +130,5 @@ print(bcards)
 #         cards[i] = 100
 
 # print(cards)
+
+print(73%1)
