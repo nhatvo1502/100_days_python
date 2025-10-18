@@ -7,37 +7,43 @@ guess_a_number = r'''
  \______  /____/  \___  >____  > (____  / |___|  /____/|__|_|  /___  /\___  >__|   
         \/            \/     \/       \/       \/            \/    \/     \/       
 '''
-print(guess_a_number)
-print("Welcome to guessing number game!")
-print("I'm thinking of a number between 1 and 100")
-number = random.randint(1, 100)
-attempt = 0
-
-while True:
-    difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ")
-    if difficulty == 'easy':
-        attempt = 10
-        break
-    elif difficulty == 'hard':
-        attempt = 5
-        break
+def set_difficulty():
+   choice = input("Please select difficulty 'easy' or 'hard':  ")
+   if choice == 'easy':
+      return 10
+   elif choice == 'hard':
+      return 5
+   else:
+      print("Wrong input..")
+      return set_difficulty()
+   
+def check_answer(guess, answer, attempts):
+    if guess > answer:
+        print("Too high!")
+    elif guess < answer:
+        print("Too low!")
     else:
-        difficulty = input("Wrong input!")
-
-is_game_over = False
-while not is_game_over:
-    print(f"You have {attempt} attemps remaining to guess the number")
-    guess = int(input("Make a guess: "))
-    if guess > number:
-        print("Too high.\nGuess again.")
-        attempt-=1
-    elif guess < number:
-        print("Too low.\nGuess again.")
-        attempt-=1
-    else:
-        print(f"You got it. The number is {number}")
-        is_game_over = True
+        print(f"You got it. The answer is {answer}")
     
-    if attempt < 1:
-        print("You ran out of guesses.")
-        is_game_over = True
+    return attempts-1
+
+def game():
+    print("Welcome to the Number Guessing Game!")
+    print("I'm thinking of a number between 1 and 100.")
+    answer = random.randint(1, 100)
+
+    attempts = set_difficulty()
+    
+    
+    guess = 0
+    while guess != answer:
+        print(f"You have {attempts} attempts remaining to guess the number.")
+        guess = int(input("Make a guess: "))
+
+        attempts = check_answer(guess, answer, attempts)
+
+        if attempts == 0:
+            print("You ran out of attempts. GG")
+            return
+
+game()
