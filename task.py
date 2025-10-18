@@ -131,4 +131,30 @@
 
 # print(cards)
 
-print(73%1)
+# print(73%1)
+# def fizz_buzz(target):
+#     for number in range(1, target + 1):
+#         if number % 3 == 0 and number % 5 == 0:
+#             print("FizzBuzz")
+#         if number % 3 == 0:
+#             print("Fizz")
+#         if number % 5 == 0:
+#             print("Buzz")
+#         else:
+#             print(number)
+# fizz_buzz(89)
+import random
+person_pool = {
+    1: "Camila Cabello, a Musician, from Cuba.",
+    2: "Chris Hemsworth, an Actor, from Australia.",
+    3: "Shakira, a Musician, from Colombia.",
+    4: "Zendaya, an Actress, from United States.",
+    5: "Jungkook, a Musician, from South Korea.",
+    6: "Lionel Messi, an Athlete, from Argentina.",
+    7: "Emma Watson, an Actress, from United Kingdom.",
+    8: "Keanu Reeves, an Actor, from Canada.",
+    9: "Rihanna, a Musician, from Barbados.",
+    10: "Lupita Nyong'o, an Actress, from Kenya."
+}
+
+print(random.choice(person_pool))
