@@ -143,18 +143,50 @@
 #         else:
 #             print(number)
 # fizz_buzz(89)
-import random
-person_pool = {
-    1: "Camila Cabello, a Musician, from Cuba.",
-    2: "Chris Hemsworth, an Actor, from Australia.",
-    3: "Shakira, a Musician, from Colombia.",
-    4: "Zendaya, an Actress, from United States.",
-    5: "Jungkook, a Musician, from South Korea.",
-    6: "Lionel Messi, an Athlete, from Argentina.",
-    7: "Emma Watson, an Actress, from United Kingdom.",
-    8: "Keanu Reeves, an Actor, from Canada.",
-    9: "Rihanna, a Musician, from Barbados.",
-    10: "Lupita Nyong'o, an Actress, from Kenya."
+# import random
+# person_pool = {
+#     1: "Camila Cabello, a Musician, from Cuba.",
+#     2: "Chris Hemsworth, an Actor, from Australia.",
+#     3: "Shakira, a Musician, from Colombia.",
+#     4: "Zendaya, an Actress, from United States.",
+#     5: "Jungkook, a Musician, from South Korea.",
+#     6: "Lionel Messi, an Athlete, from Argentina.",
+#     7: "Emma Watson, an Actress, from United Kingdom.",
+#     8: "Keanu Reeves, an Actor, from Canada.",
+#     9: "Rihanna, a Musician, from Barbados.",
+#     10: "Lupita Nyong'o, an Actress, from Kenya."
+# }
+
+# print(random.choice(person_pool))
+menu = {
+   "espresso" : {
+      "water": 50,
+      "coffee": 18,
+      "milk": 0,
+      "price": 1.50
+   },
+   "latte": {
+      "water": 200,
+      "coffee": 24,
+      "milk": 150,
+      "price": 2.50
+   },
+   "cappuccino": {
+      "water": 250,
+      "coffee": 24,
+      "milk": 100,
+      "price": 3.00
+   }
 }
 
-print(random.choice(person_pool))
+order = {
+   "drink": "",
+   "pay": {
+      "quaters": 0,
+      "nickles": 0,
+      "dimes": 0,
+      "pennies": 0
+   }
+}
+
+print(menu["espresso"])
