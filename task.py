@@ -190,3 +190,5 @@ order = {
 }
 
 print(menu["espresso"])
+for i in menu:
+   print(f"{i} {menu[i]['price']}")
