@@ -158,37 +158,83 @@
 # }
 
 # print(random.choice(person_pool))
-menu = {
-   "espresso" : {
-      "water": 50,
-      "coffee": 18,
-      "milk": 0,
-      "price": 1.50
-   },
-   "latte": {
-      "water": 200,
-      "coffee": 24,
-      "milk": 150,
-      "price": 2.50
-   },
-   "cappuccino": {
-      "water": 250,
-      "coffee": 24,
-      "milk": 100,
-      "price": 3.00
-   }
-}
+# menu = {
+#    "espresso" : {
+#       "water": 50,
+#       "coffee": 18,
+#       "milk": 0,
+#       "price": 1.50
+#    },
+#    "latte": {
+#       "water": 200,
+#       "coffee": 24,
+#       "milk": 150,
+#       "price": 2.50
+#    },
+#    "cappuccino": {
+#       "water": 250,
+#       "coffee": 24,
+#       "milk": 100,
+#       "price": 3.00
+#    }
+# }
 
-order = {
-   "drink": "",
-   "pay": {
-      "quaters": 0,
-      "nickles": 0,
-      "dimes": 0,
-      "pennies": 0
-   }
-}
+# order = {
+#    "drink": "",
+#    "pay": {
+#       "quaters": 0,
+#       "nickles": 0,
+#       "dimes": 0,
+#       "pennies": 0
+#    }
+# }
 
-print(menu["espresso"])
-for i in menu:
-   print(f"{i} {menu[i]['price']}")
+# print(menu["espresso"])
+# for i in menu:
+#    print(f"{i} {menu[i]['price']}")
+
+# from turtle import Turtle, Screen
+# timmy = Turtle()
+# timmy.shape("turtle")
+# timmy.color("coral")
+# print(timmy)
+# while True:
+#     timmy.forward(50)
+#     timmy.left(25)
+
+# my_screen = Screen()
+# my_screen.exitonclick()
+# print(my_screen.canvheight)
+
+from prettytable import PrettyTable
+table = PrettyTable()
+pokemon_list = [
+    ["Pikachu", "Electric"],
+    ["Charizard", "Fire/Flying"],
+    ["Bulbasaur", "Grass/Poison"],
+    ["Squirtle", "Water"],
+    ["Jigglypuff", "Normal/Fairy"],
+    ["Gengar", "Ghost/Poison"],
+    ["Eevee", "Normal"],
+    ["Snorlax", "Normal"],
+    ["Dragonite", "Dragon/Flying"],
+    ["Mewtwo", "Psychic"]
+]
+
+# pokemon_name = []
+# pokeon_type = []
+# for i in range(len(data)):
+#     pokemon_name.append(data[i][0])
+#     pokeon_type.append(data[i][1])
+
+# table.add_column('Name', pokemon_name)
+# table.add_column('Type', pokeon_type)
+
+for i in range(len(pokemon_list)):
+    row = []
+    for c in range(len(pokemon_list[i])):
+        row.append(pokemon_list[i][c])
+    table.add_row(row)
+
+table.align = "l"
+print(table)
