@@ -87,7 +87,7 @@ def check_resource_sufficient(order):
 def process_coins(order):
    '''calculate values of inserted coins'''
    '''return values'''
-   coin_value = order["pay"]['quarters']*0.25 + order["pay"]['dimes']*0.10 + order["pay"]['nickles']*0.05 + order["pay"]['pennies']*0.1
+   coin_value = order["pay"]['quarters']*0.25 + order["pay"]['dimes']*0.10 + order["pay"]['nickles']*0.05 + order["pay"]['pennies']*0.01
    order.update({"money": round(coin_value, 2)})
 
 def check_transaction(order):

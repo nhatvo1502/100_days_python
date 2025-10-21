@@ -1,19 +1,17 @@
 from menu import MenuItem
 
 class CoffeeMaker:
-    def __init__(self, water=300, milk=200, coffee=100, fund=0.0):
+    def __init__(self, water=300, milk=200, coffee=100):
         self.resource = {
             "water": water,
             "milk": milk,
-            "coffee": coffee,
-            "fund": fund
+            "coffee": coffee
         }
     
     def report(self):
         print(f"Water: {self.resource["water"]}")
         print(f"Milk: {self.resource["milk"]}")
         print(f"Coffee: {self.resource["coffee"]}")
-        print(f"Money: {self.resource["money"]}")
     
     def is_resource_sufficient(self, drink):
         isSufficient = False
@@ -33,4 +31,3 @@ class CoffeeMaker:
         self.resource["water"]-=order.ingredient["water"]
         self.resource["milk"]-=order.ingredient["milk"]
         self.resource["coffee"]-=order.ingredient["coffee"]
-        self.resource["fund"]+=order.ingredient["cost"]

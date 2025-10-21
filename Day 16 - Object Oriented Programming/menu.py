@@ -21,13 +21,22 @@ class Menu:
             self.menu.append(item)
     
     def get_items(self):
+        items = ''
         if len(self.menu) > 0:
-            items = ''
             for item in self.menu:
                 items+=f"{item.name}/"
-            return items[:-1]
         else:
             print("Menu empty")
+        return items[:-1]
+    
+    def get_items_list(self):
+        item_list = []
+        if len(self.menu) > 0:
+            for item in self.menu:
+                item_list.append(item.name)
+        else:
+            print("Menu empty")
+        return item_list
     
     def find_drink(self, order_name):
         for item in self.menu:
