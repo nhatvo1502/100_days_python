@@ -239,11 +239,24 @@
 # table.align = "l"
 # print(table)
 
-true_variants = ["True", "true", "T", "t"]
+# true_variants = ["True", "true", "T", "t"]
 
-answer = "False"
+# answer = "False"
 
-if answer in true_variants:
-   print("yes")
-else:
-   print("no")
+# if answer in true_variants:
+#    print("yes")
+# else:
+#    print("no")
+
+# import requests
+# r = requests.get("https://opentdb.com/api.php?amount=20&difficulty=easy&type=boolean")
+# r = r.json()
+# question_list = []
+# print(r["results"])
+# for i in r["results"]:
+#     print(i["question"])
+#     print(i["correct_answer"])
+
+aString = "&quot;QWEASDZXC"
+aString = aString.replace("&quot;", '"')
+print(aString)
