@@ -206,35 +206,44 @@
 # my_screen.exitonclick()
 # print(my_screen.canvheight)
 
-from prettytable import PrettyTable
-table = PrettyTable()
-pokemon_list = [
-    ["Pikachu", "Electric"],
-    ["Charizard", "Fire/Flying"],
-    ["Bulbasaur", "Grass/Poison"],
-    ["Squirtle", "Water"],
-    ["Jigglypuff", "Normal/Fairy"],
-    ["Gengar", "Ghost/Poison"],
-    ["Eevee", "Normal"],
-    ["Snorlax", "Normal"],
-    ["Dragonite", "Dragon/Flying"],
-    ["Mewtwo", "Psychic"]
-]
+# from prettytable import PrettyTable
+# table = PrettyTable()
+# pokemon_list = [
+#     ["Pikachu", "Electric"],
+#     ["Charizard", "Fire/Flying"],
+#     ["Bulbasaur", "Grass/Poison"],
+#     ["Squirtle", "Water"],
+#     ["Jigglypuff", "Normal/Fairy"],
+#     ["Gengar", "Ghost/Poison"],
+#     ["Eevee", "Normal"],
+#     ["Snorlax", "Normal"],
+#     ["Dragonite", "Dragon/Flying"],
+#     ["Mewtwo", "Psychic"]
+# ]
 
-# pokemon_name = []
-# pokeon_type = []
-# for i in range(len(data)):
-#     pokemon_name.append(data[i][0])
-#     pokeon_type.append(data[i][1])
+# # pokemon_name = []
+# # pokeon_type = []
+# # for i in range(len(data)):
+# #     pokemon_name.append(data[i][0])
+# #     pokeon_type.append(data[i][1])
 
-# table.add_column('Name', pokemon_name)
-# table.add_column('Type', pokeon_type)
+# # table.add_column('Name', pokemon_name)
+# # table.add_column('Type', pokeon_type)
 
-for i in range(len(pokemon_list)):
-    row = []
-    for c in range(len(pokemon_list[i])):
-        row.append(pokemon_list[i][c])
-    table.add_row(row)
+# for i in range(len(pokemon_list)):
+#     row = []
+#     for c in range(len(pokemon_list[i])):
+#         row.append(pokemon_list[i][c])
+#     table.add_row(row)
 
-table.align = "l"
-print(table)
+# table.align = "l"
+# print(table)
+
+true_variants = ["True", "true", "T", "t"]
+
+answer = "False"
+
+if answer in true_variants:
+   print("yes")
+else:
+   print("no")
