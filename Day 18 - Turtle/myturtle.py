@@ -42,6 +42,10 @@ angle = 90
 def random_color():
     jim.color(random.choice(colors))
 
+def random_pen_color():
+    tup = (random.randint(0, 254), random.randint(0, 254), random.randint(0, 254))
+    jim.pencolor(tup)
+
 def draw_shape(sides):
     for i in range(sides):
         if i == 0:
@@ -79,9 +83,21 @@ def random_walk2():
         jim.setheading(random.choice(directions))
         jim.forward(side_length)
 
+def spirograph():
+    offset = 5
+    jim.pensize(5)
+    for i in range(1000):
+        random_pen_color()
+        jim.speed(0)
+        jim.circle(200)
+        jim.right(offset)
+
+
+
 screen = Screen()
 screen.colormode(255)
-random_walk2()
+
+spirograph()
 
 
 
