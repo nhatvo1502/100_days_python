@@ -25,11 +25,11 @@ colors = [
     "coral",
     "salmon"
 ]
-
+directions = [0, 90, 180, 270]
 jim.shape("turtle")
 jim.color("red")
 
-side_length = 20
+side_length = 30
 side_number = 3
 angle = 90
 # while True:
@@ -69,7 +69,16 @@ def random_walk(angle):
         elif turn == 2:
             jim.right(180)
 
-random_walk(angle)
+def random_walk2():
+    jim.pensize(15)
+    jim.speed(0)
+    for i in range(1000):
+        random_color()
+        jim.forward(side_length)
+        jim.setheading(random.choice(directions))
+
+
+random_walk2()
 
 
 screen = Screen()
