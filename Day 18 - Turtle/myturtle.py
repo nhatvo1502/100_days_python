@@ -38,6 +38,7 @@ angle = 90
 #         jim.right(180/side_number)
 #     side_number+=1
 
+
 def random_color():
     jim.color(random.choice(colors))
 
@@ -73,14 +74,16 @@ def random_walk2():
     jim.pensize(15)
     jim.speed(0)
     for i in range(1000):
-        random_color()
-        jim.forward(side_length)
+        tup = (random.randint(0, 254), random.randint(0, 254), random.randint(0, 254))
+        jim.pencolor(tup)
         jim.setheading(random.choice(directions))
+        jim.forward(side_length)
 
-
+screen = Screen()
+screen.colormode(255)
 random_walk2()
 
 
-screen = Screen()
+
 # screen.exitonclick()
 jim.mainloop()
