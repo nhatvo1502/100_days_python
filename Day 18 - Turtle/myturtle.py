@@ -29,8 +29,9 @@ colors = [
 jim.shape("turtle")
 jim.color("red")
 
-side_length = 100
+side_length = 20
 side_number = 3
+angle = 90
 # while True:
 #     for i in range(side_number):
 #         jim.forward(side_length)
@@ -49,10 +50,28 @@ def draw_shape(sides):
         jim.forward(side_length)
         jim.right(angle)
 
-for i in range(20):
-    random_color()
-    draw_shape(side_number)
-    side_number+=1
+# for i in range(20):
+#     random_color()
+#     draw_shape(side_number)
+#     side_number+=1
+
+def random_walk(angle):
+    jim.pensize(10)
+    jim.speed(0)
+    for i in range(1000):
+        random_color()
+        jim.forward(side_length)
+        turn = random.randint(0, 4)
+        if turn == 0:
+            jim.right(angle)
+        elif turn == 1:
+            jim.left(angle)
+        elif turn == 2:
+            jim.right(180)
+
+random_walk(angle)
+
 
 screen = Screen()
-screen.exitonclick()
+# screen.exitonclick()
+jim.mainloop()
