@@ -1,1 +1,1 @@
-100 Days with Python
+100 of learning Python
