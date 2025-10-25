@@ -1,0 +1,11 @@
+import colorgram
+
+PATH = r'D:\LEARN\100_days_python\Day 18 - Turtle\image.jpg'
+colors = colorgram.extract(rf'{PATH}', 10)
+
+colors_list = []
+for color in colors:
+   tup = (color.rgb[0], color.rgb[1], color.rgb[2])
+   colors_list.append(tup)
+
+print(colors_list)
