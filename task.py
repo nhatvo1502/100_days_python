@@ -257,6 +257,18 @@
 #     print(i["question"])
 #     print(i["correct_answer"])
 
-aString = "&quot;QWEASDZXC"
-aString = aString.replace("&quot;", '"')
-print(aString)
+# aString = "&quot;QWEASDZXC"
+# aString = aString.replace("&quot;", '"')
+# print(aString)
+
+from tkinter import messagebox, Tk
+import random
+
+# root = Tk()
+# root.withdraw()
+# messagebox.showinfo("Race Result", f"Nhat wins the race! 🏁")
+# root.destroy()
+
+colors = ['red', 'blue', 'green']
+random.shuffle(colors)
+print(colors)
