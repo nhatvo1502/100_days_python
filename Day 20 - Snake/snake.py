@@ -1,10 +1,15 @@
 from turtle import Turtle, Screen
+from tkinter import messagebox, Tk
+import random
 
 screen = Screen()
 screen.setworldcoordinates(0, 0, 600, 600)
+screen.isFood = False
 
 PAUSE = False
+DELAY = 100
 
+# construct world
 def create_snake(brush=False):
     snake = Turtle("square")
     snake.hideturtle()
@@ -23,6 +28,7 @@ def create_snake(brush=False):
 snake = create_snake()
 brush = create_snake(brush=True)
 
+# control
 def turn_left():
     snake.left(90)
 
@@ -49,8 +55,11 @@ def move():
 
     if len(snake.trail) > snake.length:
         snake.clearstamp(snake.trail.pop(0))
+    print(f"snake.trail={snake.trail}")
+    print(f"snake.length={snake.length}")
+    print(f"brush.pos()={brush.pos()}")
     
-
+    
 def pause():
     global PAUSE
     if PAUSE == True:
@@ -58,11 +67,37 @@ def pause():
         play()
     else:
         PAUSE = True
-        
 
+# game brain
 def play():
     while not PAUSE:
         move()
+        if screen.isFood == False:
+            make_food(screen)
+        
+        if snake.pos()[0] > 591 or snake.pos()[0] < 0 or snake.pos()[1] > 591 or snake.pos()[0] < 0 or snake.pos() in snake.trail:
+            end()
+            break
+
+def make_food(screen):
+    x = random.randint(10, 590)
+    y = random.randint(10, 590)
+    food = Turtle()
+    food.hideturtle()
+    food.color("red")
+    food.shape("square")
+    food.shapesize(1)
+    food.teleport(x, y)
+    food.showturtle()
+    screen.isFood = True
+
+def end():
+    root = Tk()
+    root.withdraw()
+    messagebox.showinfo('Game Over',f"You died! Your snake was {snake.length}m")
+    PAUSE = True
+
+
 
 screen.listen()
 screen.onkey(key="a", fun=turn_left)
