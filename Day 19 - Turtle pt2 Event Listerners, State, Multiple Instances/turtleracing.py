@@ -9,7 +9,7 @@ COLORS = [
     "darkgreen", "darkred", "darkblue", "darkorange", "darkviolet", "darkgray", "deepskyblue", "lightgreen", "lightblue", "lightcoral",
     "lightpink", "lightsalmon", "lightgray", "lightcyan", "mediumblue", "mediumseagreen", "mediumvioletred", "royalblue", "sienna"
 ]
-FINISH_LINE = 400 
+FINISH_LINE = 400
 
 def create_turtles(num):
     random.shuffle(COLORS)
@@ -54,6 +54,20 @@ def make_bet(screen, color_index):
             isCorrected = True
         else:
             user_bet = screen.textinput('tittle', f'Incorrected input! Which turtle do you bet on? ({color_selection})')
+    return user_bet
+
+def play_again(screen):
+    isCorrected = False
+    user_input = screen.textinput('tittle', f'Do you want to play again? (y/n) ')
+    while not isCorrected:
+        if user_input.lower() == 'y':
+            isCorrected = True
+            return True
+        elif user_input.lower() == 'n':
+            isCorrected = True
+            return False
+        else:
+            user_input = screen.textinput('tittle', f'Wrong input! Do you want to play again? (y/n) ')
 
 # Race
 def race(turtles):
@@ -69,28 +83,45 @@ def race(turtles):
                 turtle.write(f"                 {turtle.color()[1]}")
                 return turtle
 
-def annouce_winner(winner, user_predict):
+def check_win(winner, user_predict, score, round):
     root = Tk()
     root.withdraw()
-    if user_predict == winner.color():
+    round+=1
+    if user_predict == winner.color()[1]:
         messagebox.showinfo('Race result',f"{winner.color()[1]} crossed the finish line, you won!")
+        score+=1
+        return score, round, True
     else:
         messagebox.showinfo('Race result', f"{winner.color()[1]} crossed the finish line, you lose!")
+        return score, round, False
+    
+def get_score(score, round):
+    root = Tk()
+    root.withdraw()
+    messagebox.showinfo('Score board', f"Your won {score} races out of {round}")
 
 def main():
-    
+    score = 0
+    round = 0
     screen = Screen()
+    
+    
+    isPlaying = True
+    while isPlaying:
+        
+        turtles_number = prompt_turtle_number(screen)
 
-    turtles_number = prompt_turtle_number(screen)
+        turtles, color_index = set_starting_point(*create_turtles(turtles_number))
 
-    turtles, color_index = set_starting_point(*create_turtles(turtles_number))
+        user_bet = make_bet(screen, color_index)
 
-    user_bet = make_bet(screen, color_index)
+        winner = race(turtles)
 
-    winner = race(turtles)
+        score, round, isWin = check_win(winner, user_bet, score, round)
 
-    annouce_winner(winner, user_bet)
-
+        isPlaying = play_again(screen)
+        screen.clearscreen()
+    get_score(score, round)
     screen.exitonclick()
 
 main()
