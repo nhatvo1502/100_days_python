@@ -12,7 +12,7 @@ def create_snake(brush=False):
     snake.penup()
     snake.goto(300, 300)
     if brush==True:
-        snake.color("lime")
+        snake.color("white")
     else:
         snake.color("black")
         snake.showturtle()
@@ -29,17 +29,27 @@ def turn_left():
 def turn_right():
     snake.right(90)
 
+# def move():
+#     snake.pendown()
+#     brush.pendown()
+#     snake.forward(10)
+#     snake.trail.append(snake.pos())
+#     print(f"snake.trail={snake.trail}")
+#     print(f"snake.length={snake.length}")
+#     print(f"brush.pos()={brush.pos()}")
+#     if len(snake.trail) > snake.length:
+#         brush.goto(snake.trail[0])
+#         snake.trail.pop(0)
+
 def move():
-    snake.pendown()
-    brush.pendown()
+    snake.penup()
     snake.forward(10)
-    snake.trail.append(snake.pos())
-    print(f"snake.trail={snake.trail}")
-    print(f"snake.length={snake.length}")
-    print(f"brush.pos()={brush.pos()}")
+    stampid = snake.stamp()
+    snake.trail.append(stampid)
+
     if len(snake.trail) > snake.length:
-        brush.goto(snake.trail[0])
-        snake.trail.pop(0)
+        snake.clearstamp(snake.trail.pop(0))
+    
 
 def pause():
     global PAUSE
