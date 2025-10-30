@@ -119,6 +119,7 @@ def make_food(screen):
         for y_ in range(y-10, y+10):
             tup = (x_, y_)
             screen.food.hitbox.append(tup)
+    print(f"food.hitbox={screen.food.hitbox}")
     
 
 def end():
