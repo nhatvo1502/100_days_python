@@ -13,7 +13,7 @@ DELAY = 100
 def create_snake(brush=False):
     snake = Turtle("square")
     snake.hideturtle()
-    snake.pensize(10)
+    snake.pensize(5)
     snake.penup()
     snake.goto(300, 300)
     if brush==True:
@@ -21,12 +21,12 @@ def create_snake(brush=False):
     else:
         snake.color("black")
         snake.showturtle()
+        snake.stampid = []
         snake.trail = []
         snake.length = 10
     return snake
 
 snake = create_snake()
-brush = create_snake(brush=True)
 
 # control
 def turn_left():
@@ -51,13 +51,15 @@ def move():
     snake.penup()
     snake.forward(10)
     stampid = snake.stamp()
-    snake.trail.append(stampid)
+    snake.stampid.append(stampid)
+    snake.trail.append(snake.pos())
 
-    if len(snake.trail) > snake.length:
-        snake.clearstamp(snake.trail.pop(0))
+    if len(snake.stampid) > snake.length:
+        snake.clearstamp(snake.stampid.pop(0))
+        snake.trail.pop(0)
+    print(f"snake.stampid={snake.stampid}")
     print(f"snake.trail={snake.trail}")
     print(f"snake.length={snake.length}")
-    print(f"brush.pos()={brush.pos()}")
     
     
 def pause():
@@ -68,28 +70,56 @@ def pause():
     else:
         PAUSE = True
 
+def check_wall():
+    if snake.pos()[0] > 591 or snake.pos()[0] < 0 or snake.pos()[1] > 591 or snake.pos()[0] < 0:
+        end()
+        return True
+    return False
+
+def check_body():
+    if snake.pos() in snake.trail[:-1]:
+        end()
+        return True
+    return False
+
+def check_food():
+    if snake.pos() in screen.food.hitbox:
+        screen.food.clear()
+        screen.food.hideturtle()
+        screen.isFood = False
+        snake.length+=1
+
 # game brain
 def play():
     while not PAUSE:
         move()
         if screen.isFood == False:
             make_food(screen)
-        
-        if snake.pos()[0] > 591 or snake.pos()[0] < 0 or snake.pos()[1] > 591 or snake.pos()[0] < 0 or snake.pos() in snake.trail:
-            end()
+        print(f"screen.food.pos()={screen.food.pos()}")
+        print(f"snake.pos()={snake.pos()}")
+        isWalled = check_wall()
+        isBodied = check_body()
+        if isWalled == True or isBodied == True:
             break
-
+        check_food()
+        
 def make_food(screen):
     x = random.randint(10, 590)
     y = random.randint(10, 590)
-    food = Turtle()
-    food.hideturtle()
-    food.color("red")
-    food.shape("square")
-    food.shapesize(1)
-    food.teleport(x, y)
-    food.showturtle()
+    screen.food = Turtle()
+    screen.food.hideturtle()
+    screen.food.color("red")
+    screen.food.shape("square")
+    screen.food.shapesize(1)
+    screen.food.teleport(x, y)
+    screen.food.showturtle()
     screen.isFood = True
+    screen.food.hitbox = []
+    for x_ in range(x-10, x+10):
+        for y_ in range(y-10, y+10):
+            tup = (x_, y_)
+            screen.food.hitbox.append(tup)
+    
 
 def end():
     root = Tk()

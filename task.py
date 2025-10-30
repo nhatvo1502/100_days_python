@@ -261,14 +261,18 @@
 # aString = aString.replace("&quot;", '"')
 # print(aString)
 
-from tkinter import messagebox, Tk
-import random
+# from tkinter import messagebox, Tk
+# import random
 
-# root = Tk()
-# root.withdraw()
-# messagebox.showinfo("Race Result", f"Nhat wins the race! 🏁")
-# root.destroy()
+# # root = Tk()
+# # root.withdraw()
+# # messagebox.showinfo("Race Result", f"Nhat wins the race! 🏁")
+# # root.destroy()
 
-colors = ['red', 'blue', 'green']
-random.shuffle(colors)
-print(colors)
+# colors = ['red', 'blue', 'green']
+# random.shuffle(colors)
+# print(colors)
+
+aList = ["hello", "bello", "world"]
+print(aList.pop(-1))
+print(aList)
