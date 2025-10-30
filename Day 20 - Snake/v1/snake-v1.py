@@ -30,10 +30,16 @@ snake = create_snake()
 
 # control
 def turn_left():
-    snake.left(90)
+    snake.setheading(180)
 
 def turn_right():
-    snake.right(90)
+    snake.setheading(0)
+
+def up():
+    snake.setheading(90)
+
+def down():
+    snake.setheading(270)
 
 # def move():
 #     snake.pendown()
@@ -133,7 +139,11 @@ def end():
 screen.listen()
 screen.onkey(key="a", fun=turn_left)
 screen.onkey(key="d", fun=turn_right)
+screen.onkey(key="Left", fun=turn_left)
+screen.onkey(key="Right", fun=turn_right)
 screen.onkey(key="Escape", fun=pause)
+screen.onkey(key="Up", fun=up)
+screen.onkey(key="Down", fun=down)
 play()
 
 
